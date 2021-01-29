@@ -65,11 +65,6 @@ https://www.kaggle.com/paultimothymooney/chest-xray-pneumonia
 
 - [x] Data augmentation using CV2 library and the 'ImageDataGenerator' function in order to increase training quality
 
-
-<p align="center">
-    <img src="https://github.com/jcmeunier77/prediction_API/blob/master/img_out/pc%20ranked%20by%20prices.png">
-</p>
-
 #### 4. Modelization
 In total, a number of 17 models were build, trained and compared using various hyperparametrisation :
 - [x] deep of the neural network
