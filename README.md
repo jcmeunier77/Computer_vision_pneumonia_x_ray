@@ -69,8 +69,8 @@ https://www.kaggle.com/paultimothymooney/chest-xray-pneumonia
 In total, a number of 17 models were build, trained and compared using various hyperparametrisation ([see notebook section](https://github.com/jcmeunier77/Computer_vision_pneumonia_x_ray/tree/master/notebook%20with%20computed%20CNN%20models)):
 - [x] depth of the neural network
 - [x] type of layers (dense, convolutional,...)
-- [x] filters 
-- [x] type of activation (i.a. relu, leakyrelu, sigmoid, softmax,...)
+- [x] filters (number, size, padding, etc.)
+- [x] type of activation (i.a. relu, leaky-relu, sigmoid, softmax,...)
 - [x] dropout 
 - [x] pooling 
 - [x] batch normalization
@@ -124,3 +124,11 @@ The best fitted model was choosen partly based on previous good performance on t
 <p align="center">
     <img src="https://github.com/jcmeunier77/Computer_vision_pneumonia_x_ray/blob/master/img/6.%20final%20val%20perfomance%20indicators.png">
 </p>
+
+## 3. Further development 
+
+- [x] Further train the model on additional data
+- [x] Model optimization: constructing simpler models that reach similar metric performance 
+- [x] Building a RESTfull API to be deployed on a web based environment (e.g. Heroku, Azure, etc.)
+- [x] Completing the API with a web-based interface (e.g. using streamlit) allowing for uploading x ray images to get pneumonia diagnose
+- [x] Extending model to include other types of pathologies (i.e. multiclass classification including other respiratory diseases) 
