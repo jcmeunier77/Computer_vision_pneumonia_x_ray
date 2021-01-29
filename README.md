@@ -44,7 +44,7 @@ Authors of the project : [Kai Yung TAN (Adam)](https://github.com/kaiyungtan) & 
        - [Jain et al., 2020. Pneumonia detection in chest X-ray images using convolutional neural networks and transfer learning. Measurement, 165, 1.](https://www.sciencedirect.com/science/article/abs/pii/S0263224120305844)
 
 #### 2. Data collection 
-- [x] for 3D house reconstruction 
+- [x] for 3D house reconstruct
   - [DTM file for Flandre including Brussels](http://bit.ly/DTM_Flandre)
   - [DSM file for Flandre including Brussels](http://bit.ly/DSM_Flandre)
   - [Shapefiles with cadastral maps and parcels](https://eservices.minfin.fgov.be/myminfin-web/pages/cadastral-plans?_ga=2.167466685.225309318.1604313780-388788923.1602907232)
