@@ -57,9 +57,6 @@ https://www.kaggle.com/paultimothymooney/chest-xray-pneumonia
 <p align="center">
     <img src="https://github.com/jcmeunier77/Computer_vision_pneumonia_x_ray/blob/master/img/0.%20sample%20xrays.png">
 </p>
-
-
-
       
 #### 3. Data manipulation 
 - [x] Image size reduction: original jpg were reduced to size 128 x 128 in order to accelerate data processing during models training
@@ -74,39 +71,61 @@ https://www.kaggle.com/paultimothymooney/chest-xray-pneumonia
 </p>
 
 #### 4. Modelization
-- [x] Features : 
-  - type of building: house/apartment
-  - living area: square meters
-  - field's surface: square meters
-  - number of facades
-  - number of bedrooms
-  - garden: yes/no
-  - terrace: yes/no
-  - terrace area: square meters
-  - equipped kitchen: yes/no
-  - fireplace: yes/no
-  - swimming pool: yes/no
-  - state of the building: as new, just renovated, good, to refresh, to renovate, to restore (one hot encoding)
-- [x] Target: 
-  - House price: euros 
-- [x] Machine learning model: 
-  - Multiple models using increasing number of features and based on various algorithm (i.a. linear, SVM, decision tree, XGBoost) were trained and evaluated.
-  - The best model was based on the XGBoost algorithm (n_estimators=700, max_depth= 4, learning_rate= 0.3) and provided an r_square coefficient of .82 on the train set and of .76 on the test set
-  - The best fitted model was save as a pickel file which was integrated in the API for price estimation 
-  - Examples of python code for data manipulation and algorithms development are stored in the [notebook folder](https://github.com/jcmeunier77/prediction_API/tree/master/notebooks%20data%20preparation%20and%20ML%20algorithms) of the current repository
+In total, a number of 17 models were build, trained and compared using various hyperparametrisation :
+- [x] deep of the neural network
+- [x] type of layers (dense, convolutional,...)
+- [x] filters 
+- [x] type of activation (i.a. relu, leakyrelu, sigmoid, softmax,...)
+- [x] dropout 
+- [x] pooling 
+- [x] batch normalization
 
-### Project output
-#### 1. API Structure 
+For each model, hyperparametrisation was fine-tuned based on the performance indices on the test data set (624 pictures). When a model reached a satifying accuracy, he was finally rerun on the validation set (16 pictures)
+
+The best fitted model was choosen partly based on previous good performance on train and test data set but mostly on performance on validation data set.  
+
+### Final best fitting model
+#### 1. Model architecture  
+- 8 convolution layers (filters=32/32/32/64/64/64/128/128, kernel_size=(3, 3) activation='Leaky-relu')
+- MaxPool2D((2, 2)
+- Dropout(0.25) on all layers excepting the last one
+- Flatten
+- 1 dense layer (1024, activation='relu')
+- model.add(Dense(2, activation='sigmoid'))
+- Dropout(0.5)
+- loss='binary_crossentropy', optimizer='adam'
+- shuffle = True
+- data augmentation: rotation_range = 20, zoom_range = 0.2, width_shift_range = 0.2, height_shift_range = 0.2, horizontal_flip = True, vertical_flip = True
+- Batch size : 16
+- Epochs : 100
+
+### 2. Performance evaluation
+- [x] Loss and accuracy
 
 <p align="center">
-    <img src="https://github.com/jcmeunier77/prediction_API/blob/master/img_out/API%20structure.png">
+    <img src="https://github.com/jcmeunier77/Computer_vision_pneumonia_x_ray/blob/master/img/1.%20final%20loss%20accuracy.png">
 </p>
 
-### 2. API Routes
-- [x] Estimate: in
+- [x] Confusion matrix on test set
 
 <p align="center">
-    <img src="https://github.com/jcmeunier77/prediction_API/blob/master/img_out/API%20estimate%20in.png">
+    <img src="https://github.com/jcmeunier77/Computer_vision_pneumonia_x_ray/blob/master/img/3.%20final%20test%20confusion%20matrix.png">
 </p>
 
-- [x] Estimate: out
+- [x] Performance indices on test set
+
+<p align="center">
+    <img src="https://github.com/jcmeunier77/Computer_vision_pneumonia_x_ray/blob/master/img/4.%20final%20test%20perfomance%20indicators.png">
+</p>
+
+- [x] Confusion matrix on validation set
+
+<p align="center">
+    <img src="https://github.com/jcmeunier77/Computer_vision_pneumonia_x_ray/blob/master/img/5.%20final%20val%20confusion%20matrix.png">
+</p>
+
+- [x] Performance indices on validation set
+
+<p align="center">
+    <img src="https://github.com/jcmeunier77/Computer_vision_pneumonia_x_ray/blob/master/img/6.%20final%20val%20perfomance%20indicators.png">
+</p>
