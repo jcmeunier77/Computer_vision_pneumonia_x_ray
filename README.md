@@ -40,8 +40,8 @@ Authors of the project : [Kai Yung TAN (Adam)](https://github.com/kaiyungtan) & 
 - [x] Consolidating knowledge on model building and model hyperparametrisation (e.g. type of layers, pooling, dropout, batch normalization, type of activation functions,...)
 - [x] Data augmentation
 - [x] Aside from that, we also searched documentation on the internet on existing published work and/or studies on x ray data manipulation and modelization, as for example : 
-      - [sibeltan/pneumonia_detection_CNN](https://github.com/sibeltan/pneumonia_detection_CNN)
-      - [Jain et al., 2020. Pneumonia detection in chest X-ray images using convolutional neural networks and transfer learning. Measurement, 165, 1.](https://www.sciencedirect.com/science/article/abs/pii/S0263224120305844)
+       - [sibeltan/pneumonia_detection_CNN](https://github.com/sibeltan/pneumonia_detection_CNN)
+       - [Jain et al., 2020. Pneumonia detection in chest X-ray images using convolutional neural networks and transfer learning. Measurement, 165, 1.](https://www.sciencedirect.com/science/article/abs/pii/S0263224120305844)
 
 #### 2. Data collection 
 - [x] for 3D house reconstruction 
