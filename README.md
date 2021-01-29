@@ -44,17 +44,30 @@ Authors of the project : [Kai Yung TAN (Adam)](https://github.com/kaiyungtan) & 
   - [Jain et al., 2020. Pneumonia detection in chest X-ray images using convolutional neural networks and transfer learning. Measurement, 165, 1.](https://www.sciencedirect.com/science/article/abs/pii/S0263224120305844)
 
 #### 2. Data collection 
-- [x] for 3D house reconstruct
-  - [DTM file for Flandre including Brussels](http://bit.ly/DTM_Flandre)
-  - [DSM file for Flandre including Brussels](http://bit.ly/DSM_Flandre)
-  - [Shapefiles with cadastral maps and parcels](https://eservices.minfin.fgov.be/myminfin-web/pages/cadastral-plans?_ga=2.167466685.225309318.1604313780-388788923.1602907232)
-- [x] for real-estate data
-  - Data collection was done in the context of a previous project whose aim was to develop a [Scrapping Bot](https://github.com/jcmeunier77/bot-scrape-zimmo) written in Python, to scrape data (50.000+) from real estate website "Zimmo.be", for a challenge given by Becode.
+The dataset is organized into 3 folders (train, test, val) and contains subfolders for each image category (Pneumonia/Normal). There are 5,863 X-Ray images (JPEG) and 2 categories (Pneumonia/Normal).
+
+Chest X-ray images (anterior-posterior) were selected from retrospective cohorts of pediatric patients of one to five years old from Guangzhou Women and Children’s Medical Center, Guangzhou. All chest X-ray imaging was performed as part of patients’ routine clinical care.
+
+For the analysis of chest x-ray images, all chest radiographs were initially screened for quality control by removing all low quality or unreadable scans. The diagnoses for the images were then graded by two expert physicians before being cleared for training the AI system. In order to account for any grading errors, the evaluation set was also checked by a third expert.
+
+https://www.kaggle.com/paultimothymooney/chest-xray-pneumonia
+
+- [x] Examples of data input 
+
+<p align="center">
+    <img src="https://github.com/jcmeunier77/Computer_vision_pneumonia_x_ray/blob/master/img/0.%20sample%20xrays.png">
+</p>
+
+
+
       
 #### 3. Data manipulation 
-- [x] Data cleaning : including, a.o., removing outliers and features with to many missing values (>15%) and conducting multivariate feature imputation for the feature with less missing values (using sklearn.impute.IterativeImputer)
+- [x] Image size reduction: original jpg were reduced to size 128 x 128 in order to accelerate data processing during models training
 
-- [x] Features engineering : as location (postal code) are not readily amenable to be integrate in quantitative model - but has nonetheless a huge impact on real-estate price - a ranking index was compute based on the average house price for each entities in Belgium. As shown, this index demonstrates a good association with house prices and it seemed that its 3rd polynomials best explained the target (more than 25% of the 'house price' variance explained for this sole feature - based on r_square coefficient).    
+- [x] Standardisation of the images 
+
+- [x] Data augmentation using CV2 library and the 'ImageDataGenerator' function in order to increase training quality
+
 
 <p align="center">
     <img src="https://github.com/jcmeunier77/prediction_API/blob/master/img_out/pc%20ranked%20by%20prices.png">
